@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { LINKS, NAV_LINKS, SOCIALS } from "@/constants";
+import { personalInfo } from "@/constants/personal";
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -25,7 +26,7 @@ export const Navbar = () => {
             draggable={false}
             className="cursor-pointer"
           />
-          <div className="hidden md:flex md:selffont-bold ml-[10px] text-gray-300">Hassan Mansuri</div>
+          <div className="hidden md:flex md:selffont-bold ml-[10px] text-gray-300">{personalInfo.name}</div>
         </Link>
 
         {/* Web Navbar */}

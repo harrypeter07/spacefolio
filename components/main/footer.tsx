@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { FOOTER_DATA } from "@/constants";
+import { personalInfo } from "@/constants/personal";
 
 export const Footer = () => {
   return (
@@ -30,7 +31,7 @@ export const Footer = () => {
         </div>
 
         <div className="mb-[20px] text-[15px] text-center">
-          &copy; John Doe {new Date().getFullYear()} Inc. All rights reserved.
+          &copy; {personalInfo.name} {new Date().getFullYear()} Inc. All rights reserved.
         </div>
       </div>
     </div>

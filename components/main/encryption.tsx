@@ -1,13 +1,29 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { slideInFromTop } from "@/lib/motion";
 
 export const Encryption = () => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const handleToggleVideo = () => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    if (vid.paused) {
+      vid.play();
+      setIsPaused(false);
+    } else {
+      vid.pause();
+      setIsPaused(true);
+    }
+  };
+
   return (
-    <div className="flex flex-row relative items-center justify-center min-h-screen w-full h-full -z-20">
+    <div className="flex flex-row relative items-center justify-center min-h-screen w-full h-full">
       <div className="absolute w-auto h-auto top-0 z-[5]">
         <motion.div
           variants={slideInFromTop}
@@ -42,6 +58,15 @@ export const Encryption = () => {
         <div className="Welcome-box px-[15px] py-[4px] z-[20] border my-[20px] border-[#7042F88B] opacity-[0.9]">
           <h1 className="Welcome-text text-[12px]">Encryption</h1>
         </div>
+
+        <button
+          type="button"
+          onClick={handleToggleVideo}
+          className="button-primary text-white rounded-lg px-4 py-2 mt-2"
+          aria-pressed={isPaused}
+        >
+          {isPaused ? "Resume Background" : "Pause Background"}
+        </button>
       </div>
 
       <div className="absolute z-[20] bottom-[10px] px-[5px]">
@@ -50,8 +75,9 @@ export const Encryption = () => {
         </div>
       </div>
 
-      <div className="w-full flex items-start justify-center absolute">
+      <div className="w-full flex items-start justify-center absolute z-0">
         <video
+          ref={videoRef}
           loop
           muted
           autoPlay
