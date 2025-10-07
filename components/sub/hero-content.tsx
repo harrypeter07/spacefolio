@@ -31,6 +31,23 @@ export const HeroContent = () => {
           variants={slideInFromLeft(0.5)}
           className="flex flex-col gap-6 mt-6 text-6xl text-bold text-white max-w-[600px] w-auto h-auto"
         >
+          {/* Big Name Heading above the headline */}
+          <span className="text-7xl md:text-8xl leading-tight">
+            {(() => {
+              const parts = personalInfo.name.split(" ");
+              const first = parts[0] ?? personalInfo.name;
+              const rest = parts.slice(1).join(" ");
+              return (
+                <>
+                  <span className="text-white">{first}{rest ? " " : ""}</span>
+                  {rest && (
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">{rest}</span>
+                  )}
+                </>
+              );
+            })()}
+          </span>
+
           <span>
             {personalInfo.headlinePrefix}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
