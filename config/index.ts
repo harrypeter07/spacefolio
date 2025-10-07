@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/constants/personal";
 
 export const siteConfig: Metadata = {
-  title: "Hassan Mansuri | Space Portfolio",
-  description: "Welcome to Hassan Mansuri's full stack Next.js 14 space portfolio.",
+  title: siteMeta.title,
+  description: siteMeta.description,
   keywords: [
     "reactjs",
     "nextjs",
@@ -34,8 +35,5 @@ export const siteConfig: Metadata = {
     "html",
     "css",
   ] as Array<string>,
-  authors: {
-    name: "Hassan Mansuri",
-    url: "https://github.com/hassan-mansuri",
-  },
+  authors: siteMeta.authors,
 } as const;
