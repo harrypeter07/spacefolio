@@ -1,5 +1,5 @@
 export const personalInfo = {
-  name: "Your Name",
+  name: "Hassan Mansuri",
   portfolioTagline: "Fullstack Developer Portfolio",
   headlinePrefix: "Providing",
   headlineHighlight: "the best",

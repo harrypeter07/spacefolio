@@ -34,7 +34,7 @@ export const HeroContent = () => {
           {/* Big Name Heading above the headline */}
           <span className="text-7xl md:text-8xl leading-tight">
             {(() => {
-              const parts = personalInfo.name.split(" ");
+              const parts = personalInfo.name.toUpperCase().split(" ");
               const first = parts[0] ?? personalInfo.name;
               const rest = parts.slice(1).join(" ");
               return (
