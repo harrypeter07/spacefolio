@@ -1,4 +1,5 @@
 import { FaYoutube, FaFacebook } from "react-icons/fa";
+import { personalInfo } from "@/constants/personal";
 import {
   RxDiscordLogo,
   RxGithubLogo,
@@ -360,5 +361,5 @@ export const NAV_LINKS = [
 ] as const;
 
 export const LINKS = {
-  sourceCode: "https://github.com/sanidhyy/space-portfolio",
+  sourceCode: personalInfo.authorUrl,
 };
